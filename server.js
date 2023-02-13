@@ -10,10 +10,14 @@ const PORT = process.env.PORT || 3000;
 // Setup data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static(__dirname));
+app.use(express.static('public'));
+app.use('/api', apiRoutes);
+app.use('/', htmlRoutes);
 
 //Require routes file
-require('./routes/routes')(app);
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+
 
 // Setup listener
 app.listen(PORT, function() {
