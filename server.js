@@ -20,6 +20,6 @@ const htmlRoutes = require('./routes/htmlRoutes');
 
 
 // Setup listener
-app.listen(PORT, function() {
-    console.log("App listening on PORT: " + PORT);
+app.listen(process.env.PORT, function() {
+    console.log("App listening on PORT: " + process.env.PORT);
 });  
